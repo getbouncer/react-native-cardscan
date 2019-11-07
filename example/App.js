@@ -9,16 +9,16 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import RNCardscan from 'react-native-cardscan';
 
-export default class App extends Component<{}> {
+export default class App extends Component<> {
   state = {
     status: 'starting',
     message: '--'
   };
   componentDidMount() {
-    RNCardscan.sampleMethod('Testing', 123, (message) => {
+    RNCardscan.call('Testing', 123, (message) => {
       this.setState({
         status: 'native callback received',
         message

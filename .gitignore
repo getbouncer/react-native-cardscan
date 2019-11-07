@@ -32,6 +32,3 @@ project.xcworkspace
 buck-out/
 \.buckd/
 *.keystore
-
-# iOS
-example/ios/Pods

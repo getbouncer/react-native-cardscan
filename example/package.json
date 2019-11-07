@@ -3,14 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "preinstall": "npm pack ..",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "postinstall": "node ../scripts/examples_postinstall.js"
+    "postinstall": "node ../scripts/examples_postinstall.js node_modules/react-native-cardscan"
   },
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59",
-    "react-native-cardscan": "file:../"
+    "react-native-cardscan": "file:react-native-cardscan-1.0.0.tgz"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
