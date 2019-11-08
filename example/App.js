@@ -9,7 +9,7 @@
  */
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Cardscan from 'react-native-cardscan';
 
 export default class App extends Component {
@@ -27,6 +27,14 @@ export default class App extends Component {
       <View style={styles.container}>
         <Text style={styles.welcome}>☆Cardscan example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
+        <TouchableOpacity
+          onPress={async () => {
+            const result = await Cardscan.scan();
+            this.setState({ status: result });
+          }}
+        >
+          <Text style={styles.welcome}>scan</Text>
+        </TouchableOpacity>
       </View>
     );
   }
