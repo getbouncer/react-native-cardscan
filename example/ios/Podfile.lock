@@ -1,20 +1,8 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
   - boost-for-react-native (1.63.0)
+  - CardScan (1.0.5021):
+    - CardScan/Core (= 1.0.5021)
+  - CardScan/Core (1.0.5021)
   - DoubleConversion (1.1.6)
   - Folly (2018.10.22.00):
     - boost-for-react-native
@@ -24,7 +12,7 @@ PODS:
   - React (0.59.10):
     - React/Core (= 0.59.10)
   - react-native-cardscan (1.0.0):
-    - AFNetworking (~> 3.0)
+    - CardScan
     - React
   - React/Core (0.59.10):
     - yoga (= 0.59.10.React)
@@ -87,6 +75,7 @@ PODS:
   - yoga (0.59.10.React)
 
 DEPENDENCIES:
+  - CardScan
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/GLog.podspec`)
@@ -111,8 +100,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - AFNetworking
     - boost-for-react-native
+    - CardScan
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -129,15 +118,15 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga/yoga.podspec"
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  CardScan: 02de7d20ce42443d50fc5cc81ffb6ddbb5ec7a05
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   React: 36d0768f9e93be2473b37e7fa64f92c1d5341eef
-  react-native-cardscan: 05de7431610d96e038cf1422220b10f2ffdf564e
+  react-native-cardscan: 1168a897d3c01e7ae73b4eded98eb0a45f9b41ea
   yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
 
-PODFILE CHECKSUM: 81ae9b025a2b51221832cf7ad10d5f673678ad7a
+PODFILE CHECKSUM: 79acbef4d470384bfd14d3c4ad767dedd803cc59
 
 COCOAPODS: 1.8.4

@@ -1,20 +1,14 @@
 #import "RNCardscan.h"
 
-#import <AFNetworking/AFNetworking.h>
+@import CardScan;
 
 @implementation RNCardscan
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(call:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+RCT_EXPORT_METHOD(isCompatible:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject)
 {
-	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
-	[manager GET:@"https://httpstat.us/200" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ resp: %@", numberArgument, stringArgument, responseObject]]);
-	} failure:^(NSURLSessionTask *operation, NSError *error) {
-			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ err: %@", numberArgument, stringArgument, error]]);
-	}];
+    resolve(@([ScanViewController isCompatible]));
 }
 
 @end

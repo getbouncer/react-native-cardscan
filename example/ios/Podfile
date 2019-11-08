@@ -27,5 +27,6 @@ platform :ios, '10.0'
 			'DevSupport'
 		]
 	
+		pod 'CardScan'
 		pod 'react-native-cardscan', :path => '../../react-native-cardscan.podspec'
 	end

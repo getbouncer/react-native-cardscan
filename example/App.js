@@ -10,28 +10,23 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import RNCardscan from 'react-native-cardscan';
+import Cardscan from 'react-native-cardscan';
 
-export default class App extends Component<> {
+export default class App extends Component {
   state = {
     status: 'starting',
-    message: '--'
   };
-  componentDidMount() {
-    RNCardscan.call('Testing', 123, (message) => {
-      this.setState({
-        status: 'native callback received',
-        message
-      });
+  async componentDidMount() {
+    const isCompatible = await Cardscan.isCompatible();
+    this.setState({
+      status: isCompatible ? 'Cardscan is supported!' : 'Cardscan is not supported',
     });
   }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>☆RNCardscan example☆</Text>
+        <Text style={styles.welcome}>☆Cardscan example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
-        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
-        <Text style={styles.instructions}>{this.state.message}</Text>
       </View>
     );
   }
