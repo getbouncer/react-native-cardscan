@@ -30,7 +30,7 @@ export default class App extends Component {
         <TouchableOpacity
           onPress={async () => {
             const result = await Cardscan.scan();
-            this.setState({ status: result });
+            this.setState({ status: result.action });
           }}
         >
           <Text style={styles.welcome}>scan</Text>
