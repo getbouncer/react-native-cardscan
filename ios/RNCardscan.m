@@ -60,7 +60,7 @@
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(isCompatible:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject)
+RCT_EXPORT_METHOD(isSupportedAsync:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject)
 {
     resolve(@([ScanViewController isCompatible]));
 }
