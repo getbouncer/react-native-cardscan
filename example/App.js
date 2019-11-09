@@ -30,7 +30,7 @@ export default () => {
   }, [setCard, setRecentAction]);
 
   const checkCompatible = useCallback(async () => {
-    const isCompatible = await Cardscan.isCompatible();
+    const isCompatible = await Cardscan.isSupportedAsync();
     setCompatible(isCompatible);
   }, [setCompatible]);
 
