@@ -27,7 +27,18 @@
 
 - (void)userDidScanCard:(ScanViewController * _Nonnull)scanViewController creditCard:(CreditCard * _Nonnull)creditCard {
     [self dismissView];
-    self.resolve(@{ @"action" : @"scanned", @"payload": creditCard });
+    NSString *number = creditCard.number;
+    NSString *expiryMonth = creditCard.expiryMonth;
+    NSString *expiryYear = creditCard.expiryYear;
+
+    self.resolve(@{
+        @"action" : @"scanned",
+        @"payload": @{
+            @"number": number,
+            @"expiryMonth": expiryMonth,
+            @"expiryYear": expiryYear
+        }
+    });
 }
 
 @end
