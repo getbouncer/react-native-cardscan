@@ -1,20 +1,19 @@
-# react-native-cardscan
+# CardScan
 
-React native wrapper for cardscan.io
+CardScan React Native iOS installation guide
 
 ## Installation
 
-### Install SDK
+### Install react-native-cardscan
 
-Install and setup permission [cardscan-ios](https://github.com/getbouncer/cardscan-ios#installation)
+Download `react-native-cardscan-1.0.0.tgz` [here](https://bouncerpaid.bintray.com/react-native-cardscan/) with your username and password and place into your project folder.
 
-### Install `react-native-cardscan`
-
+Then, install the package with 
 ```
-$ npm install getbouncer/cardscan-ios-react
+$ npm install react-native-cardscan-1.0.0.tgz
 ```
 
-### (RN 0.59 and below) Link native dependencies
+### For RN 0.59 and below: Link native dependencies
 
 #### Automatic
 
@@ -27,13 +26,26 @@ $ react-native link react-native-cardscan
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-cardscan` and add `RNCardscan.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNCardscan.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+4. Run your project `Cmd+R`
 
-### Configure Cardscan SDK
 
-Configure API key for [cardscan-ios](https://github.com/getbouncer/cardscan-ios#configure-cardscan-objective-c)
+### Install CardScan SDK
 
-## Usage
+Install and setup permission for CardScan iOS with directions [here](https://github.com/getbouncer/cardscan-ios#installation)
+
+Also, the instructions to configure your API key in obj-c is [here](https://github.com/getbouncer/cardscan-ios#configure-cardscan-objective-c)
+
+The podfile in your `~/ios/Podfile` in your project should look similar to:
+```
+platform :ios, '10.0'
+  target 'Your App' do
+  ...
+  pod 'CardScan'
+  pod 'react-native-cardscan', :path => '../node_modules/react-native-cardscan/react-native-cardscan.podspec'
+end
+```
+
+## Using CardScan (React Native)
 
 **Check device support**
 
@@ -70,6 +82,8 @@ Cardscan.scan()
 
 ## Troubleshooting
 
-### `ld: warning: Could not find auto-linked library 'swiftFoundation'`
+##### `ld: warning: Could not find auto-linked library 'swiftFoundation'`
+* A workaround with XCode 11 is to add a bridge header https://stackoverflow.com/a/56176956
 
-A workaround with XCode 11 is to add a bridge header https://stackoverflow.com/a/56176956
+##### `error: Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65`
+* A workaround with a newer XCode build system is to switch to the legacy build https://stackoverflow.com/a/51089264
