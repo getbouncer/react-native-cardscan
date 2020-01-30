@@ -3,14 +3,14 @@
 CardScan React Native iOS installation guide
 
 ## Installation
+### Install cardscan-ios SDK
+
+Install and setup permission [cardscan-ios](https://github.com/getbouncer/cardscan-ios#installation)
 
 ### Install react-native-cardscan
 
-Download `react-native-cardscan-1.0.0.tgz` [here](https://bouncerpaid.bintray.com/react-native-cardscan/) with your username and password and place into your project folder.
-
-Then, install the package with 
 ```
-$ npm install react-native-cardscan-1.0.0.tgz
+$ npm install getbouncer/cardscan-ios-react
 ```
 
 ### For RN 0.59 and below: Link native dependencies
