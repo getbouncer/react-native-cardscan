@@ -35,8 +35,8 @@
         @"action" : @"scanned",
         @"payload": @{
             @"number": number,
-            @"expiryMonth": expiryMonth,
-            @"expiryYear": expiryYear
+            @"expiryMonth": expiryMonth ?: [NSNull null],
+            @"expiryYear": expiryYear ?: [NSNull null]
         }
     });
 }

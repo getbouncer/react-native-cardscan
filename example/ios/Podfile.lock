@@ -1,8 +1,8 @@
 PODS:
   - boost-for-react-native (1.63.0)
-  - CardScan (1.0.5021):
-    - CardScan/Core (= 1.0.5021)
-  - CardScan/Core (1.0.5021)
+  - CardScan (1.0.5028):
+    - CardScan/Core (= 1.0.5028)
+  - CardScan/Core (1.0.5028)
   - DoubleConversion (1.1.6)
   - Folly (2018.10.22.00):
     - boost-for-react-native
@@ -119,7 +119,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  CardScan: 02de7d20ce42443d50fc5cc81ffb6ddbb5ec7a05
+  CardScan: 436428f0751a8d5f2ea5e53b3514b5887c65762b
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
