@@ -25,7 +25,11 @@ export default () => {
     const { action, payload } = await Cardscan.scan();
     setRecentAction(action);
     if (action === 'scanned') {
-      setCard(payload);
+      setCard({
+        number: payload.number,
+        expiryMonth: payload.expiryMonth || '??',
+        expiryYear: payload.expiryYear || '??',
+      });
     }
   }, [setCard, setRecentAction]);
 
