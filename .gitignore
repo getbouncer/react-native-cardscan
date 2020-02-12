@@ -32,3 +32,11 @@ project.xcworkspace
 buck-out/
 \.buckd/
 *.keystore
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
