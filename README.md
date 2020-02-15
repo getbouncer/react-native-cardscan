@@ -1,11 +1,17 @@
 # CardScan
 
-CardScan React Native iOS installation guide
+CardScan React Native installation guide
 
 ## Installation
-### Install cardscan-ios SDK
+### Install cardscan SDK
+
+#### iOS
 
 Install and setup permission [cardscan-ios](https://github.com/getbouncer/cardscan-ios#installation)
+
+#### Android
+
+Install [cardscan-android](https://github.com/getbouncer/cardscan-android#installation)
 
 ### Install react-native-cardscan
 
@@ -23,17 +29,36 @@ $ react-native link react-native-cardscan
 
 #### Manual
 
+##### iOS
+
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-cardscan` and add `RNCardscan.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNCardscan.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
 4. Run your project `Cmd+R`
 
+##### Android
 
-### Install CardScan SDK
+1. Open up `android/app/src/main/java/[...]/MainApplication.java`
+  - Add `import com.getbouncer.RNCardscajPackage;` to the imports at the top of the file
+  - Add `new RNCardscanPackage()` to the list returned by the `getPackages()` method
+2. Append the following lines to `android/settings.gradle`:
+    ```
+    include ':react-native-cardscan'
+    project(':react-native-cardscan').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-cardscan/android')
+    ```
+3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+    ```
+      compile project(':react-native-cardscan')
+    ```
+
+
+### Configure CardScan SDK
+
+#### iOS
 
 Install and setup permission for CardScan iOS with directions [here](https://github.com/getbouncer/cardscan-ios#installation)
 
-Also, the instructions to configure your API key in obj-c is [here](https://github.com/getbouncer/cardscan-ios#configure-cardscan-objective-c)
+Also, the instructions to configure your API key in Obj-C is [here](https://github.com/getbouncer/cardscan-ios#configure-cardscan-objective-c)
 
 The podfile in your `~/ios/Podfile` in your project should look similar to:
 ```
@@ -43,6 +68,21 @@ platform :ios, '10.0'
   pod 'CardScan'
   pod 'react-native-cardscan', :path => '../node_modules/react-native-cardscan/react-native-cardscan.podspec'
 end
+```
+
+#### Android
+
+To configure API key, open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
+
+```
+import com.getbouncer.cardscan.ScanActivity;
+...
+
+...
+public void onCreate() {
+  ...
+  ScanActivity.apiKey = "ENTER_API_KEY";
+}
 ```
 
 ## Using CardScan (React Native)
