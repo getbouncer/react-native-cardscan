@@ -39,7 +39,7 @@ $ react-native link react-native-cardscan
 ##### Android
 
 1. Open up `android/app/src/main/java/[...]/MainApplication.java`
-  - Add `import com.getbouncer.RNCardscajPackage;` to the imports at the top of the file
+  - Add `import com.getbouncer.RNCardscanPackage;` to the imports at the top of the file
   - Add `new RNCardscanPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
     ```
@@ -61,7 +61,7 @@ Install and setup permission for CardScan iOS with directions [here](https://git
 Also, the instructions to configure your API key in Obj-C is [here](https://github.com/getbouncer/cardscan-ios#configure-cardscan-objective-c)
 
 The podfile in your `~/ios/Podfile` in your project should look similar to:
-```
+```ruby
 platform :ios, '10.0'
   target 'Your App' do
   ...
@@ -74,7 +74,7 @@ end
 
 To configure API key, open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
 
-```
+```java
 import com.getbouncer.cardscan.ScanActivity;
 ...
 
@@ -83,6 +83,18 @@ public void onCreate() {
   ...
   ScanActivity.apiKey = "ENTER_API_KEY";
 }
+```
+
+Add cardscan activity to your manifest `android/app/src/main/AndroidManifest.xml`
+
+```xml
+  <application
+    android:name=".MainApplication"
+    ...
+  >
+    ...
+    <activity android:name="com.getbouncer.RNCardscanActivity" />
+  </application>
 ```
 
 ## Using CardScan (React Native)
