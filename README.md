@@ -132,6 +132,17 @@ Cardscan.scan()
   })
 ```
 
+## Running example app
+
+Inside `example`, you can find an example React Native project that you can run.
+
+To run the example app, do the following:
+- Navigate to `example`
+- `npm install`
+- Update API key in `android/app/src/main/java/com/example/MainApplication.java` for Android and `ios/example/AppDelegate.m` for iOS.
+- To run Android app: `react-native run-android`
+- To run iOS app: `react-native run-ios`
+
 ## Troubleshooting
 
 ##### `ld: warning: Could not find auto-linked library 'swiftFoundation'`
