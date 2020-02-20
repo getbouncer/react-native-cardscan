@@ -16,7 +16,7 @@ Install [cardscan-android](https://github.com/getbouncer/cardscan-android#instal
 ### Install react-native-cardscan
 
 ```
-$ npm install getbouncer/cardscan-ios-react
+$ npm install getbouncer/react-native-cardscan
 ```
 
 ### For RN 0.59 and below: Link native dependencies
