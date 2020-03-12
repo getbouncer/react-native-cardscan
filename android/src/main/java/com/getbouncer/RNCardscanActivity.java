@@ -13,21 +13,9 @@ public class RNCardscanActivity extends AppCompatActivity {
         ScanActivity.start(this);
     }
 
-    protected void onActivityResult(Integer requestCode, Integer resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (ScanActivity.isScanResult(requestCode)) {
-            if (resultCode == ScanActivity.RESULT_OK && data != null) {
-                ScanActivity.creditCardFromResult(data);
-            } else if (resultCode == ScanActivity.RESULT_CANCELED) {
-                if (data.getBooleanExtra(ScanActivity.RESULT_FATAL_ERROR, false)) {
-                    // TODO: handle a fatal error with cardscan
-                } else {
-                    // TODO: the user pressed the back button
-                }
-            }
-        }
+        setResult(resultCode, data);
+        finish();
     }
-
-
 }
