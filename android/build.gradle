@@ -74,8 +74,8 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation 'com.getbouncer:cardscan-base:+'
-    implementation 'com.getbouncer:cardscan:+'
+    implementation 'com.getbouncer:cardscan-base:1.0.5147'
+    implementation 'com.getbouncer:cardscan:1.0.5147'
 }
 
 def configureReactNativePom(def pom) {
