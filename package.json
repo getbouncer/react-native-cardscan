@@ -1,7 +1,7 @@
 {
   "name": "react-native-cardscan",
   "title": "React Native Cardscan",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "TODO",
   "main": "index.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "name": "Stefano Suryanto",
     "email": "stefanocsuryanto@gmail.com"
   },
-  "license": "MIT",
+  "license": "Bouncer Free Trial",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {

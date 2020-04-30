@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59",
-    "react-native-cardscan": "file:react-native-cardscan-1.0.1.tgz",
+    "react-native-cardscan": "file:react-native-cardscan-1.0.2.tgz",
     "react-native-credit-card-input": "^0.4.1"
   },
   "devDependencies": {
