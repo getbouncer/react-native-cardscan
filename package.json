@@ -1,8 +1,8 @@
 {
   "name": "react-native-cardscan",
   "title": "React Native Cardscan",
-  "version": "1.0.2",
-  "description": "TODO",
+  "version": "1.0.5",
+  "description": "This library provides payment card scanning functionality for your react-native app.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,24 +10,31 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/getbouncer/react-native-cardscan.git",
-    "baseUrl": "https://github.com/getbouncer/react-native-cardscan"
+    "baseUrl": "https://cardscan.io"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "card",
+    "scan",
+    "cardscan",
+    "payment",
+    "mobile",
+    "android",
+    "ios"
   ],
   "author": {
-    "name": "Stefano Suryanto",
-    "email": "stefanocsuryanto@gmail.com"
+    "name": "Stefano Suryanto and Adam Wushensky",
+    "email": "adam@getbouncer.com"
   },
   "license": "Bouncer Free Trial",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
-    "react": "^16.8.1",
+    "react": "^16.13.1",
     "react-native": ">=0.59.0-rc.0 <1.0.x"
   },
   "devDependencies": {
-    "react": "^16.8.3",
+    "react": "^16.13.1",
     "react-native": "^0.62.2"
   }
 }

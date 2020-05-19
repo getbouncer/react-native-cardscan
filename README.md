@@ -3,7 +3,7 @@
 CardScan React Native installation guide
 
 ## Installation
-### Install cardscan SDK
+### 1. Install the CardScan SDK into your app
 
 #### iOS
 
@@ -11,15 +11,15 @@ Install and setup permission [cardscan-ios](https://github.com/getbouncer/cardsc
 
 #### Android
 
-Install [cardscan-android](https://github.com/getbouncer/cardscan-android#installation)
+No additional steps are necessary to install [cardscan-android](https://github.com/getbouncer/cardscan-android#installation).
 
-### Install react-native-cardscan
+### 2. Install the `react-native-cardscan` package from NPM
 
 ```
-$ npm install getbouncer/react-native-cardscan
+$ npm install react-native-cardscan
 ```
 
-### For RN 0.59 and below: Link native dependencies
+### 3. For RN 0.59 and below: Link native dependencies
 
 #### Automatic
 
@@ -38,18 +38,20 @@ $ react-native link react-native-cardscan
 
 ##### Android
 
-1. Open up `android/app/src/main/java/[...]/MainApplication.java`
-  - Add `import com.getbouncer.RNCardscanPackage;` to the imports at the top of the file
-  - Add `new RNCardscanPackage()` to the list returned by the `getPackages()` method
-2. Append the following lines to `android/settings.gradle`:
+1. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+    ```
+      implementation project(':react-native-cardscan')
+      implementation "com.getbouncer:cardscan:1.0.5151"
+      implementation "com.getbouncer:cardscan-base:1.0.5151"
+    ```
+1. Append the following lines to `android/settings.gradle`:
     ```
     include ':react-native-cardscan'
-    project(':react-native-cardscan').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-cardscan/android')
+    project(':react-native-cardscan').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-cardscan/android')
     ```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-    ```
-      compile project(':react-native-cardscan')
-    ```
+1. Open `android/app/src/main/java/[...]/MainApplication.java`
+    - Add `import com.getbouncer.RNCardscanPackage;` to the imports at the top of the file
+    - Add `new RNCardscanPackage()` to the list returned by the `getPackages()` method
 
 
 ### Configure CardScan SDK
