@@ -20,6 +20,8 @@ import com.getbouncer.cardscan.base.ScanBaseActivity;
 public class RNCardscanModule extends ReactContextBaseJavaModule {
     private static final int SCAN_REQUEST_CODE = 51234;
 
+    public static String apiKey = null;
+
     private final ReactApplicationContext reactContext;
 
     private Promise scanPromise;
@@ -90,7 +92,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void scan(String apiKey, Promise promise) {
+    public void scan(Promise promise) {
         scanPromise = promise;
 
         ScanBaseActivity.warmUp(this.reactContext.getApplicationContext());
