@@ -49,9 +49,19 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                         }
                     } else if (resultCode == ScanActivity.RESULT_CANCELED && data != null) {
                         map.putString("action", "canceled");
-                        map.putBoolean("enter_card_manually", data.getBooleanExtra(ScanBaseActivity.RESULT_ENTER_CARD_MANUALLY_REASON, false));
-                        map.putBoolean("camera_open_error", data.getBooleanExtra(ScanBaseActivity.RESULT_CAMERA_OPEN_ERROR, false));
-                        map.putBoolean("fatal_error", data.getBooleanExtra(ScanBaseActivity.RESULT_FATAL_ERROR, false));
+
+                        final String canceled_reason;
+                        if (data.getBooleanExtra(ScanBaseActivity.RESULT_ENTER_CARD_MANUALLY_REASON, false)) {
+                            canceled_reason = "enter_card_manually";
+                        } else if (data.getBooleanExtra(ScanBaseActivity.RESULT_CAMERA_OPEN_ERROR, false)) {
+                            canceled_reason = "camera_error";
+                        } else if (data.getBooleanExtra(ScanBaseActivity.RESULT_FATAL_ERROR, false)) {
+                            canceled_reason = "fatal_error";
+                        } else {
+                            canceled_reason = "user_canceled";
+                        }
+
+                        map.putString("canceled_reason", canceled_reason);
                     } else if (resultCode == ScanActivity.RESULT_CANCELED) {
                         map.putString("action", "canceled");
                     } else {
