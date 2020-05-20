@@ -29,6 +29,7 @@ export default () => {
         number: payload.number,
         expiryMonth: payload.expiryMonth || '??',
         expiryYear: payload.expiryYear || '??',
+        issuer: payload.issuer || '??',
       });
     }
   }, [setCard, setRecentAction]);

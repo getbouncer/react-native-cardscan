@@ -13,7 +13,7 @@ Install and setup permission [cardscan-ios](https://github.com/getbouncer/cardsc
 
 No additional steps are necessary to install [cardscan-android](https://github.com/getbouncer/cardscan-android#installation).
 
-### 2. Install the `react-native-cardscan` package from NPM
+### 2. Install the [react-native-cardscan](https://www.npmjs.com/package/react-native-cardscan) package from NPM
 
 ```
 $ npm install react-native-cardscan
@@ -41,8 +41,6 @@ $ react-native link react-native-cardscan
 1. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
     ```
       implementation project(':react-native-cardscan')
-      implementation "com.getbouncer:cardscan:1.0.5151"
-      implementation "com.getbouncer:cardscan-base:1.0.5151"
     ```
 1. Append the following lines to `android/settings.gradle`:
     ```
@@ -77,26 +75,14 @@ end
 To configure API key, open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
 
 ```java
-import com.getbouncer.cardscan.ScanActivity;
+import com.getbouncer.RNCardScanModule;
 ...
 
 ...
 public void onCreate() {
   ...
-  ScanActivity.apiKey = "ENTER_API_KEY";
+  RNCardScanModule.apiKey = "<YOUR_API_KEY_HERE>";
 }
-```
-
-Add cardscan activity to your manifest `android/app/src/main/AndroidManifest.xml`
-
-```xml
-  <application
-    android:name=".MainApplication"
-    ...
-  >
-    ...
-    <activity android:name="com.getbouncer.RNCardscanActivity" />
-  </application>
 ```
 
 ## Using CardScan (React Native)
@@ -122,14 +108,24 @@ Cardscan.isSupportedAsync()
 import Cardscan from 'react-native-cardscan';
 
 Cardscan.scan()
-  .then(({ action, payload }) => {
+  .then(({action, payload, canceled_reason}) => {
     if (action === 'scanned') {
-      const { number, expiryMonth, expiryYear } = payload;
+      const { number, expiryMonth, expiryYear, issuer } = payload;
       // Display information
-    } else if (action === 'cancelled') {
-      // User cancelled
+    } else if (action === 'canceled') {
+      if (canceled_reason === 'enter_card_manually') {
+        // the user elected to enter a card manually
+      } else if (canceled_reason === 'camera_error') {
+        // there was an error with the camera
+      } else if (canceled_reason === 'fatal_error') {
+        // there was an error during the scan
+      } else {
+        // User cancelled, see the canceled_reason for details
+      }
     } else if (action === 'skipped') {
       // User skipped
+    } else if (action === 'unknown') {
+      // Unknown reason for scan canceled
     }
   })
 ```
