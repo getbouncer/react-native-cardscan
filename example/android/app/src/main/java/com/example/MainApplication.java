@@ -8,7 +8,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
-import com.getbouncer.RNCardScanModule;
+import com.getbouncer.RNCardscanModule;
 
 import java.util.Arrays;
 import java.util.List;
@@ -44,6 +44,6 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
-    RNCardScanModule.apiKey = "<YOUR_API_KEY_HERE>";
+    RNCardscanModule.apiKey = "<YOUR_API_KEY_HERE>";
   }
 }
