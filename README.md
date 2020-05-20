@@ -107,7 +107,7 @@ Cardscan.isSupportedAsync()
 ```javascript
 import Cardscan from 'react-native-cardscan';
 
-Cardscan.scan("<YOUR_API_KEY_HERE>")
+Cardscan.scan()
   .then(({action, payload, canceled_reason}) => {
     if (action === 'scanned') {
       const { number, expiryMonth, expiryYear, issuer } = payload;
@@ -119,7 +119,7 @@ Cardscan.scan("<YOUR_API_KEY_HERE>")
         // there was an error with the camera
       } else if (canceled_reason === 'fatal_error') {
         // there was an error during the scan
-      } else if (canceled_reason === 'user_canceled') {
+      } else {
         // User cancelled, see the canceled_reason for details
       }
     } else if (action === 'skipped') {
