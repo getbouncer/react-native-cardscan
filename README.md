@@ -76,7 +76,7 @@ end
 
 #### Android
 
-To configure [API key](https://api.getbouncer.com/console), open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
+To configure your [API key](https://api.getbouncer.com/console), open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
 
 ```java
 import com.getbouncer.RNCardscanModule;
