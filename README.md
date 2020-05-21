@@ -2,6 +2,10 @@
 
 CardScan React Native installation guide
 
+Visit our website at https://cardscan.io for examples. Native libraries for [android](https://github.com/getbouncer/cardscan-andorid) and [iOS](https://github.com/getbouncer/cardscan-ios) are also available in github.
+
+CardScan is open source, and available under a free-to-try license. See the [license](#license) section for details.
+
 ## Installation
 ### 1. Install the CardScan SDK into your app
 
@@ -72,16 +76,16 @@ end
 
 #### Android
 
-To configure API key, open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
+To configure [API key](https://api.getbouncer.com/console), open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
 
 ```java
-import com.getbouncer.RNCardScanModule;
+import com.getbouncer.RNCardscanModule;
 ...
 
 ...
 public void onCreate() {
   ...
-  RNCardScanModule.apiKey = "<YOUR_API_KEY_HERE>";
+  RNCardscanModule.apiKey = "<YOUR_API_KEY_HERE>";
 }
 ```
 
@@ -130,7 +134,7 @@ Cardscan.scan()
   })
 ```
 
-## Running example app
+## Example app
 
 Inside `example`, you can find an example React Native project that you can run.
 
@@ -148,3 +152,33 @@ To run the example app, do the following:
 
 ##### `error: Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65`
 * A workaround with a newer XCode build system is to switch to the legacy build https://stackoverflow.com/a/51089264
+
+## Authors
+
+Adam Wushensky, Sam King, Zain ul Abi Din, and Stefano Suryanto
+
+## License
+
+This library is available under paid and free licenses. See the [LICENSE](LICENSE) file for the full license text.
+
+### Quick summary
+In short, this library will remain free forever for non-commercial applications, but use by commercial applications is limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability protections.
+
+After this period commercial applications need to convert to a licensing agreement to continue to use this library.
+* Details of licensing (pricing, etc) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
+
+### More detailed summary
+What's allowed under the license:
+* Free use for any app for 90 days (for demos, evaluations, hackathons, etc).
+* Contributions (contributors must agree to the [Contributor License Agreement](Contributor%20License%20Agreement))
+* Any modifications as needed to work in your app
+
+What's not allowed under the license:
+* Commercial applications using the license for longer than 90 days without a license agreement.
+* Using us now in a commercial app today? No worries! Just email [license@getbouncer.com](mailto:license@getbouncer.com) and we’ll get you set up.
+* Redistribution under a different license
+* Removing attribution
+* Modifying logos
+* Indemnification: using this free software is ‘at your own risk’, so you can’t sue Bouncer Technologies, Inc. for problems caused by this library
+
+Questions? Concerns? Please email us at [license@getbouncer.com](mailto:license@getbouncer.com) or ask us on [slack](https://getbouncer.slack.com).
