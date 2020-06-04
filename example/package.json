@@ -1,6 +1,8 @@
 {
-  "name": "example",
+  "name": "react-native-cardscan-example",
+  "title": "React Native CardScan Example",
   "version": "0.0.1",
+  "description": "This app demonstrates the capabilites of the react-native-cardscan library.",
   "private": true,
   "scripts": {
     "preinstall": "npm pack ..",
@@ -8,10 +10,20 @@
     "test": "jest",
     "postinstall": "node ../scripts/examples_postinstall.js node_modules/react-native-cardscan"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getbouncer/react-native-cardscan.git",
+    "baseUrl": "https://github.com/getbouncer/react-native-cardscan"
+  },
+  "homepage": "https://cardscan.io",
+  "author": {
+    "name": "Stefano Suryanto and Adam Wushensky",
+    "email": "adam@getbouncer.com"
+  },
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59",
-    "react-native-cardscan": "^1.0.8",
+    "react-native-cardscan": "^1.1.0",
     "react-native-credit-card-input": "^0.4.1"
   },
   "devDependencies": {

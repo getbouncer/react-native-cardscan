@@ -30,6 +30,7 @@ export default () => {
         expiryMonth: payload.expiryMonth || '??',
         expiryYear: payload.expiryYear || '??',
         issuer: payload.issuer || '??',
+        legalName: payload.legalName || '??',
       });
     }
   }, [setCard, setRecentAction]);

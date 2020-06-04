@@ -114,7 +114,7 @@ import Cardscan from 'react-native-cardscan';
 Cardscan.scan()
   .then(({action, payload, canceled_reason}) => {
     if (action === 'scanned') {
-      const { number, expiryMonth, expiryYear, issuer } = payload;
+      const { number, expiryMonth, expiryYear, issuer, legalName } = payload;
       // Display information
     } else if (action === 'canceled') {
       if (canceled_reason === 'enter_card_manually') {
@@ -123,8 +123,10 @@ Cardscan.scan()
         // there was an error with the camera
       } else if (canceled_reason === 'fatal_error') {
         // there was an error during the scan
+      } else if (canceled_reason === 'user_canceled') {
+        // the user canceled the scan
       } else {
-        // User cancelled, see the canceled_reason for details
+        // the scan was canceled for an unknown reason
       }
     } else if (action === 'skipped') {
       // User skipped
