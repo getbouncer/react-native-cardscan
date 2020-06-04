@@ -45,6 +45,7 @@ $ react-native link react-native-cardscan
 1. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
     ```
       implementation project(':react-native-cardscan')
+      implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
     ```
 1. Append the following lines to `android/settings.gradle`:
     ```
@@ -144,6 +145,10 @@ To run the example app, do the following:
 - Navigate to `example`
 - `npm install`
 - Update API key in `android/app/src/main/java/com/example/MainApplication.java` for Android and `ios/example/AppDelegate.m` for iOS.
+- Point the android app to the SDK: create a file `example/local.properties` with a line
+  ```
+  sdk.dir=<full_path_to_android_sdk>
+  ```
 - To run Android app: `react-native run-android`
 - To run iOS app: `react-native run-ios`
 

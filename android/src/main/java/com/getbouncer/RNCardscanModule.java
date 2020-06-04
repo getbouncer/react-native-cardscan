@@ -40,8 +40,6 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                                 @Nullable String scanId,
                                 @NonNull CardScanActivityResult cardScanActivityResult
                         ) {
-                            final WritableMap map = new WritableNativeMap();
-                            map.putString("action", "scanned");
 
                             final WritableMap cardMap = new WritableNativeMap();
                             cardMap.putString("number", cardScanActivityResult.getPan());
@@ -49,62 +47,66 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                             cardMap.putString("expiryYear", cardScanActivityResult.getExpiryYear());
                             cardMap.putString("issuer", cardScanActivityResult.getNetworkName());
                             cardMap.putString("legalName", cardScanActivityResult.getLegalName());
+
+                            final WritableMap map = new WritableNativeMap();
+                            map.putString("action", "scanned");
                             map.putMap("payload", cardMap);
+                            map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
                             scanPromise = null;
                         }
 
                         @Override
-                        public void enterManually(String s) {
+                        public void enterManually(String scanId) {
                             final WritableMap map = new WritableNativeMap();
-
                             map.putString("action", "canceled");
                             map.putString("canceled_reason", "enter_card_manually");
+                            map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
                             scanPromise = null;
                         }
 
                         @Override
-                        public void userCanceled(String s) {
+                        public void userCanceled(String scanId) {
                             final WritableMap map = new WritableNativeMap();
-
                             map.putString("action", "canceled");
                             map.putString("canceled_reason", "user_canceled");
+                            map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
                             scanPromise = null;
                         }
 
                         @Override
-                        public void cameraError(String s) {
+                        public void cameraError(String scanId) {
                             final WritableMap map = new WritableNativeMap();
-
                             map.putString("action", "canceled");
                             map.putString("canceled_reason", "camera_error");
+                            map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
                             scanPromise = null;
                         }
 
                         @Override
-                        public void analyzerFailure(String s) {
+                        public void analyzerFailure(String scanId) {
                             final WritableMap map = new WritableNativeMap();
-
                             map.putString("action", "canceled");
                             map.putString("canceled_reason", "fatal_error");
+                            map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
                             scanPromise = null;
                         }
 
                         @Override
-                        public void canceledUnknown(String s) {
+                        public void canceledUnknown(String scanId) {
                             final WritableMap map = new WritableNativeMap();
-
                             map.putString("action", "canceled");
                             map.putString("canceled_reason", "unknown");
+                            map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
                             scanPromise = null;
