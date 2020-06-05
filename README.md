@@ -87,6 +87,7 @@ import com.getbouncer.RNCardscanModule;
 public void onCreate() {
   ...
   RNCardscanModule.apiKey = "<YOUR_API_KEY_HERE>";
+  RNCardscanModule.enableNameExtraction = false; // set to true for experimental name extraction
 }
 ```
 
