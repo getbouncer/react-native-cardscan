@@ -67,6 +67,8 @@ export default () => {
           <CardView
             number={card.number}
             expiry={`${card.expiryMonth.padStart(2, '0')}/${card.expiryYear.slice(-2)}`}
+            brand={card.issuer.toLowerCase()}
+            name={card.legalName}
           />
         </View>
       }

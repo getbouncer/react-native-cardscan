@@ -145,7 +145,7 @@ To run the example app, do the following:
 - Navigate to `example`
 - `npm install`
 - Update API key in `android/app/src/main/java/com/example/MainApplication.java` for Android and `ios/example/AppDelegate.m` for iOS.
-- Point the android app to the SDK: create a file `example/local.properties` with a line
+- Point the android app to the SDK: create a file `example/android/local.properties` with a line
   ```
   sdk.dir=<full_path_to_android_sdk>
   ```
