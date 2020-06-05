@@ -44,8 +44,7 @@ $ react-native link react-native-cardscan
 
 1. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
     ```
-      implementation project(':react-native-cardscan')
-      implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7'
+    implementation project(':react-native-cardscan')
     ```
 1. Append the following lines to `android/settings.gradle`:
     ```

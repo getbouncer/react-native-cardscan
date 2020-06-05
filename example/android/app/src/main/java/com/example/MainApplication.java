@@ -44,6 +44,7 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
-    RNCardscanModule.apiKey = "<YOUR_API_KEY_HERE>";
+    RNCardscanModule.apiKey = "uXDc2sbugrkmvj1Bm3xOTXBw7NW4llgn";
+    RNCardscanModule.enableNameExtraction = true;
   }
 }
