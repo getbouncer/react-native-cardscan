@@ -21,6 +21,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
     private static final int SCAN_REQUEST_CODE = 51234;
 
     public static String apiKey = null;
+    public static Boolean enableNameExtraction = false;
 
     private final ReactApplicationContext reactContext;
 
