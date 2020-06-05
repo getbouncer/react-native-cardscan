@@ -44,7 +44,7 @@ $ react-native link react-native-cardscan
 
 1. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
     ```
-      implementation project(':react-native-cardscan')
+    implementation project(':react-native-cardscan')
     ```
 1. Append the following lines to `android/settings.gradle`:
     ```
@@ -86,6 +86,7 @@ import com.getbouncer.RNCardscanModule;
 public void onCreate() {
   ...
   RNCardscanModule.apiKey = "<YOUR_API_KEY_HERE>";
+  RNCardscanModule.enableNameExtraction = false; // set to true for experimental name extraction
 }
 ```
 
@@ -114,7 +115,7 @@ import Cardscan from 'react-native-cardscan';
 Cardscan.scan()
   .then(({action, payload, canceled_reason}) => {
     if (action === 'scanned') {
-      const { number, expiryMonth, expiryYear, issuer } = payload;
+      const { number, expiryMonth, expiryYear, issuer, legalName } = payload;
       // Display information
     } else if (action === 'canceled') {
       if (canceled_reason === 'enter_card_manually') {
@@ -123,8 +124,10 @@ Cardscan.scan()
         // there was an error with the camera
       } else if (canceled_reason === 'fatal_error') {
         // there was an error during the scan
+      } else if (canceled_reason === 'user_canceled') {
+        // the user canceled the scan
       } else {
-        // User cancelled, see the canceled_reason for details
+        // the scan was canceled for an unknown reason
       }
     } else if (action === 'skipped') {
       // User skipped
@@ -142,6 +145,10 @@ To run the example app, do the following:
 - Navigate to `example`
 - `npm install`
 - Update API key in `android/app/src/main/java/com/example/MainApplication.java` for Android and `ios/example/AppDelegate.m` for iOS.
+- Point the android app to the SDK: create a file `example/android/local.properties` with a line
+  ```
+  sdk.dir=<full_path_to_android_sdk>
+  ```
 - To run Android app: `react-native run-android`
 - To run iOS app: `react-native run-ios`
 

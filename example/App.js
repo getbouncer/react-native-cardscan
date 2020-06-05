@@ -24,12 +24,21 @@ export default () => {
   const scanCard = useCallback(async () => {
     const { action, payload } = await Cardscan.scan();
     setRecentAction(action);
+    var issuer = payload.issuer || '??'
+    if (issuer === 'MasterCard') {
+        issuer = 'master-card'
+    } else if (issuer === 'American Express') {
+        issuer = 'american-express'
+    } else {
+        issuer = issuer.toLowerCase()
+    }
     if (action === 'scanned') {
       setCard({
         number: payload.number,
         expiryMonth: payload.expiryMonth || '??',
         expiryYear: payload.expiryYear || '??',
-        issuer: payload.issuer || '??',
+        issuer: issuer,
+        legalName: payload.legalName || '??',
       });
     }
   }, [setCard, setRecentAction]);
@@ -66,6 +75,8 @@ export default () => {
           <CardView
             number={card.number}
             expiry={`${card.expiryMonth.padStart(2, '0')}/${card.expiryYear.slice(-2)}`}
+            brand={card.issuer.toLowerCase()}
+            name={card.legalName}
           />
         </View>
       }
