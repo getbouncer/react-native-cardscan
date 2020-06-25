@@ -2,7 +2,7 @@
 
 CardScan React Native installation guide
 
-Visit our website at https://cardscan.io for examples. Native libraries for [android](https://github.com/getbouncer/cardscan-andorid) and [iOS](https://github.com/getbouncer/cardscan-ios) are also available in github.
+Visit our website at https://cardscan.io for examples. Native libraries for [android](https://github.com/getbouncer/cardscan-ui-andorid) and [iOS](https://github.com/getbouncer/cardscan-ios) are also available in github.
 
 CardScan is open source, and available under a free-to-try license. See the [license](#license) section for details.
 
@@ -15,7 +15,7 @@ Install and setup permission [cardscan-ios](https://github.com/getbouncer/cardsc
 
 #### Android
 
-No additional steps are necessary to install [cardscan-android](https://github.com/getbouncer/cardscan-android#installation).
+No additional steps are necessary to install [cardscan-android](https://github.com/getbouncer/cardscan-ui-android#installation).
 
 ### 2. Install the [react-native-cardscan](https://www.npmjs.com/package/react-native-cardscan) package from NPM
 
