@@ -38,7 +38,8 @@ export default () => {
         expiryMonth: payload.expiryMonth || '??',
         expiryYear: payload.expiryYear || '??',
         issuer: issuer,
-        legalName: payload.legalName || '??',
+        cardholderName: payload.cardholderName || '??',
+        cvc: payload.cvc || '??',
       });
     }
   }, [setCard, setRecentAction]);
@@ -76,7 +77,8 @@ export default () => {
             number={card.number}
             expiry={`${card.expiryMonth.padStart(2, '0')}/${card.expiryYear.slice(-2)}`}
             brand={card.issuer.toLowerCase()}
-            name={card.legalName}
+            name={card.cardholderName}
+            cvc={card.cvc}
           />
         </View>
       }

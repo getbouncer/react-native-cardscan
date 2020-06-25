@@ -22,10 +22,16 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
 
     public static String apiKey = null;
     public static Boolean enableNameExtraction = false;
+    public static Boolean enableEnterCardManually = false;
 
     private final ReactApplicationContext reactContext;
 
     private Promise scanPromise;
+
+    @Override
+    public void initialize() {
+        CardScanActivity.initializeNameExtraction(this.reactContext.getApplicationContext(), apiKey);
+    }
 
     public RNCardscanModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -47,7 +53,8 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                             cardMap.putString("expiryMonth", cardScanActivityResult.getExpiryMonth());
                             cardMap.putString("expiryYear", cardScanActivityResult.getExpiryYear());
                             cardMap.putString("issuer", cardScanActivityResult.getNetworkName());
-                            cardMap.putString("legalName", cardScanActivityResult.getLegalName());
+                            cardMap.putString("cardholderName", cardScanActivityResult.getCardholderName());
+                            cardMap.putString("cvc", cardScanActivityResult.getCvc());
 
                             final WritableMap map = new WritableNativeMap();
                             map.putString("action", "scanned");
@@ -136,8 +143,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
     public void scan(Promise promise) {
         scanPromise = promise;
 
-        CardScanActivity.warmUp(this.reactContext.getApplicationContext(), apiKey);
-        final Intent intent = CardScanActivity.buildIntent(this.reactContext.getApplicationContext(), apiKey);
+        final Intent intent = CardScanActivity.buildIntent(this.reactContext.getApplicationContext(), apiKey, enableEnterCardManually, enableNameExtraction, true, true);
         this.reactContext.startActivityForResult(intent, SCAN_REQUEST_CODE, null);
     }
 }
