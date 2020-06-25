@@ -154,11 +154,22 @@ To run the example app, do the following:
 
 ## Troubleshooting
 
+#### iOS
+
 ##### `ld: warning: Could not find auto-linked library 'swiftFoundation'`
 * A workaround with XCode 11 is to add a bridge header https://stackoverflow.com/a/56176956
 
 ##### `error: Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65`
 * A workaround with a newer XCode build system is to switch to the legacy build https://stackoverflow.com/a/51089264
+
+#### Android
+
+##### `Error: spawnSync /.../Andoroid/sdk/platform-tools/adb ENOENT`
+
+* react-native was unable to start the app after installing it. To start it manually, run the following command:
+```bash
+adb reverse tcp:8081 tcp:8081 && adb shell am start -n com.example/com.example.MainActivity
+```
 
 ## Authors
 
