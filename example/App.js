@@ -22,25 +22,49 @@ export default () => {
   const [recentAction, setRecentAction] = useState('none');
 
   const scanCard = useCallback(async () => {
-    const { action, payload } = await Cardscan.scan();
+    const { action, scanId, payload, canceledReason } = await Cardscan.scan();
     setRecentAction(action);
-    var issuer = payload.issuer || '??'
-    if (issuer === 'MasterCard') {
-        issuer = 'master-card'
-    } else if (issuer === 'American Express') {
-        issuer = 'american-express'
-    } else {
-        issuer = issuer.toLowerCase()
-    }
     if (action === 'scanned') {
+      var issuer = payload.issuer || '??';
+      if (issuer === 'MasterCard') {
+        issuer = 'master-card';
+      } else if (issuer === 'American Express') {
+        issuer = 'american-express';
+      } else {
+        issuer = issuer.toLowerCase();
+      }
       setCard({
         number: payload.number,
+        expiryDay: payload.expiryDay || '',
         expiryMonth: payload.expiryMonth || '??',
         expiryYear: payload.expiryYear || '??',
         issuer: issuer,
-        cardholderName: payload.cardholderName || '??',
         cvc: payload.cvc || '??',
+        cardholderName: payload.cardholderName || '??',
+        error: payload.error || ''
       });
+    }
+
+    if (action === 'canceled') {
+      if (canceledReason === 'enter_card_manually') {
+        alert('Enter card manually');
+      }
+
+      if (canceledReason === 'user_canceled') {
+        alert('User canceled scan');
+      }
+
+      if (canceledReason === 'camera_error') {
+        alert('Camera error during scan');
+      }
+
+      if (canceledReason === 'fatal_error') {
+        alert('Processing error during scan');
+      }
+
+      if (canceledReason === 'unknown') {
+        alert('Unknown reason for scan cancellation');
+      }
     }
   }, [setCard, setRecentAction]);
 
