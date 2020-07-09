@@ -21,8 +21,9 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
     private static final int SCAN_REQUEST_CODE = 51234;
 
     public static String apiKey = null;
-    public static Boolean enableNameExtraction = false;
-    public static Boolean enableEnterCardManually = false;
+    public static boolean enableExpiryExtraction = false;
+    public static boolean enableNameExtraction = false;
+    public static boolean enableEnterCardManually = false;
 
     private final ReactApplicationContext reactContext;
 
@@ -30,7 +31,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
 
     @Override
     public void initialize() {
-        CardScanActivity.initializeNameExtraction(this.reactContext.getApplicationContext(), apiKey);
+        CardScanActivity.warmUp(this.reactContext.getApplicationContext(), apiKey, true);
     }
 
     public RNCardscanModule(ReactApplicationContext reactContext) {
@@ -50,11 +51,13 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
 
                             final WritableMap cardMap = new WritableNativeMap();
                             cardMap.putString("number", cardScanActivityResult.getPan());
+                            cardMap.putString("expiryDay", cardScanActivityResult.getExpiryDay());
                             cardMap.putString("expiryMonth", cardScanActivityResult.getExpiryMonth());
                             cardMap.putString("expiryYear", cardScanActivityResult.getExpiryYear());
                             cardMap.putString("issuer", cardScanActivityResult.getNetworkName());
-                            cardMap.putString("cardholderName", cardScanActivityResult.getCardholderName());
                             cardMap.putString("cvc", cardScanActivityResult.getCvc());
+                            cardMap.putString("cardholderName", cardScanActivityResult.getCardholderName());
+                            cardMap.putString("error", cardScanActivityResult.getErrorString());
 
                             final WritableMap map = new WritableNativeMap();
                             map.putString("action", "scanned");
@@ -69,7 +72,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                         public void enterManually(String scanId) {
                             final WritableMap map = new WritableNativeMap();
                             map.putString("action", "canceled");
-                            map.putString("canceled_reason", "enter_card_manually");
+                            map.putString("canceledReason", "enter_card_manually");
                             map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
@@ -80,7 +83,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                         public void userCanceled(String scanId) {
                             final WritableMap map = new WritableNativeMap();
                             map.putString("action", "canceled");
-                            map.putString("canceled_reason", "user_canceled");
+                            map.putString("canceledReason", "user_canceled");
                             map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
@@ -91,7 +94,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                         public void cameraError(String scanId) {
                             final WritableMap map = new WritableNativeMap();
                             map.putString("action", "canceled");
-                            map.putString("canceled_reason", "camera_error");
+                            map.putString("canceledReason", "camera_error");
                             map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
@@ -102,7 +105,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                         public void analyzerFailure(String scanId) {
                             final WritableMap map = new WritableNativeMap();
                             map.putString("action", "canceled");
-                            map.putString("canceled_reason", "fatal_error");
+                            map.putString("canceledReason", "fatal_error");
                             map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
@@ -113,7 +116,7 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                         public void canceledUnknown(String scanId) {
                             final WritableMap map = new WritableNativeMap();
                             map.putString("action", "canceled");
-                            map.putString("canceled_reason", "unknown");
+                            map.putString("canceledReason", "unknown");
                             map.putString("scanId", scanId);
 
                             scanPromise.resolve(map);
@@ -143,7 +146,15 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
     public void scan(Promise promise) {
         scanPromise = promise;
 
-        final Intent intent = CardScanActivity.buildIntent(this.reactContext.getApplicationContext(), apiKey, enableEnterCardManually, enableNameExtraction, true, true);
+        final Intent intent = CardScanActivity.buildIntent(
+                /* context */ this.reactContext.getApplicationContext(),
+                /* apiKey */ apiKey,
+                /* enableEnterCardManually */ enableEnterCardManually,
+                /* enableExpiryExtraction */ enableExpiryExtraction,
+                /* enableNameExtraction */ enableNameExtraction,
+                /* displayCardPan */ true,
+                /* displayCardholderName */ true
+        );
         this.reactContext.startActivityForResult(intent, SCAN_REQUEST_CODE, null);
     }
 }

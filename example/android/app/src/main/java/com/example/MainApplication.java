@@ -47,5 +47,6 @@ public class MainApplication extends Application implements ReactApplication {
     RNCardscanModule.apiKey = "<your_api_key_here>";
     RNCardscanModule.enableEnterCardManually = true;
     RNCardscanModule.enableNameExtraction = true;
+    RNCardscanModule.enableExpiryExtraction = true;
   }
 }
