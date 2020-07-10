@@ -40,7 +40,7 @@ export default () => {
         expiryYear: payload.expiryYear || '??',
         issuer: issuer,
         cvc: payload.cvc || '??',
-        cardholderName: payload.cardholderName || '??',
+        cardholderName: payload.name || '??',
         error: payload.error || ''
       });
     }
