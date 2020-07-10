@@ -23,8 +23,8 @@
   "dependencies": {
     "hermesvm": "^0.1.1",
     "jsc-android": "^241213.1.0",
-    "react": "16.8.3",
-    "react-native": "^0.62.2",
+    "react": "16.13.1",
+    "react-native": "0.63.0",
     "react-native-cardscan": "^1.1.5",
     "react-native-credit-card-input": "^0.4.1"
   },
