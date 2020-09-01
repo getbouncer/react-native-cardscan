@@ -37,3 +37,15 @@ jobs:
           cd android
           ./gradlew checkstyle
           cd ..
+
+      - name: example-lint
+        run: |
+          cd example/android
+          ./gradlew ktlint
+          cd ../..
+
+      - name: example-checkstyle
+        run: |
+          cd example/android
+          ./gradlew checkstyle
+          cd ../..

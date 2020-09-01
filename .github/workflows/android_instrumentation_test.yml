@@ -30,6 +30,15 @@ jobs:
             ./gradlew connectedCheck
             cd ..
 
+      - name: example-test
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: |
+            cd example/android
+            ./gradlew connectedCheck
+            cd ../..
+
       - name: upload-artifacts
         uses: actions/upload-artifact@v2
         if: failure()
