@@ -1,0 +1,38 @@
+name: Android Instrumentation Tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  android-instrumentation-test:
+
+    runs-on: macOS-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{secrets.SERVICE_PERSONAL_ACCESS_TOKEN}}
+          submodules: recursive
+
+      - name: dependencies
+        run: npm install
+
+      - name: test
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 29
+          script: |
+            cd android
+            ./gradlew connectedCheck
+            cd ..
+
+      - name: upload-artifacts
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: test-report
+          path: ${{ github.workspace }}/*/build/reports/
