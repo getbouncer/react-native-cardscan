@@ -21,15 +21,15 @@ jobs:
         id: get_tag
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
 
-      - name: update version
-        env:
-          TAG_VERSION: ${{ steps.get_tag.outputs.VERSION }}
-        run: |
-          cd android
-          truncate -s $(( $(stat -c "%s" gradle.properties) - $(tail -n 1 gradle.properties | wc -c) )) gradle.properties
-          echo "version=$TAG_VERSION" >> gradle.properties
-          cat gradle.properties
-          cd ..
+      # - name: update version
+      #   env:
+      #     TAG_VERSION: ${{ steps.get_tag.outputs.VERSION }}
+      #   run: |
+      #     cd android
+      #     truncate -s $(( $(stat -c "%s" gradle.properties) - $(tail -n 1 gradle.properties | wc -c) )) gradle.properties
+      #     echo "version=$TAG_VERSION" >> gradle.properties
+      #     cat gradle.properties
+      #     cd ..
 
       - name: generate changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.1.1
