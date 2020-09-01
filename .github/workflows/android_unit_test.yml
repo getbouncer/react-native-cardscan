@@ -31,7 +31,7 @@ jobs:
 
       - name: example-test
         run: |
-          cd example-android
+          cd example/android
           ./gradlew test
           cd ../..
 
