@@ -38,3 +38,10 @@ jobs:
           cd example/android
           ./gradlew lint
           cd ../..
+
+      - name: upload-artifacts
+        uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: test-report
+          path: ${{ github.workspace }}/*/build/reports/
