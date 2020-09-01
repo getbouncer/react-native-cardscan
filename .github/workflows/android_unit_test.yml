@@ -21,7 +21,11 @@ jobs:
           java-version: 1.8
 
       - name: dependencies
-        run: npm install
+        run: |
+          npm install
+          cd example
+          npm install
+          cd ..
 
       - name: test
         run: |

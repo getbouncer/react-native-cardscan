@@ -21,28 +21,20 @@ jobs:
           java-version: 1.8
 
       - name: dependencies
-        run: npm install
+        run: |
+          npm install
+          cd example
+          npm install
+          cd ..
 
       - name: lint
         run: |
           cd android
-          ./gradlew ktlint
-          cd ..
-
-      - name: CheckStyle
-        run: |
-          cd android
-          ./gradlew checkstyle
+          ./gradlew lint
           cd ..
 
       - name: example-lint
         run: |
           cd example/android
-          ./gradlew ktlint
-          cd ../..
-
-      - name: example-checkstyle
-        run: |
-          cd example/android
-          ./gradlew checkstyle
+          ./gradlew lint
           cd ../..
