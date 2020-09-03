@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 // android/build.gradle
 
 // based on:
@@ -79,7 +81,7 @@ dependencies {
 }
 
 def configureReactNativePom(def pom) {
-    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+    def packageJson = new JsonSlurper().parseText(file('../package.json').text)
 
     pom.project {
         name packageJson.title
