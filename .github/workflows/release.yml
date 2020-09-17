@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  finalize_release:
+    name: Finalize Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: "master"
+          token: ${{secrets.SERVICE_PERSONAL_ACCESS_TOKEN}}
+          submodules: recursive
+
+      - name: get current tag
+        id: get_tag
+        run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+
+      # - name: update version
+      #   env:
+      #     TAG_VERSION: ${{ steps.get_tag.outputs.VERSION }}
+      #   run: |
+      #     cd android
+      #     truncate -s $(( $(stat -c "%s" gradle.properties) - $(tail -n 1 gradle.properties | wc -c) )) gradle.properties
+      #     echo "version=$TAG_VERSION" >> gradle.properties
+      #     cat gradle.properties
+      #     cd ..
+
+      - name: generate changelog
+        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
+        with:
+          user: "getbouncer"
+          project: "react-native-cardscan"
+          repo: "getbouncer/react-native-cardscan"
+          token: ${{ secrets.SERVICE_PERSONAL_ACCESS_TOKEN }}
+          pullRequests: "true"
+          prWoLabels: "true"
+          issues: "true"
+          issuesWoLabels: "true"
+          author: "true"
+          base: "HISTORY.md"
+          unreleased: "true"
+          breakingLabels: "Versioning - BREAKING"
+          enhancementLabels: "Type - Enhancement, Type - Feature"
+          bugLabels: "Type - Fix, Bug - Fixed"
+          deprecatedLabels: "Type - Deprecated"
+          removedLabels: "Type - Removal"
+          securityLabels: "Security Fix"
+          excludeLabels: "Skip-Changelog"
+
+      - name: create commit
+        id: commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Automatic changelog update"
+          file_pattern: "gradle.properties CHANGELOG.md"

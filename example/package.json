@@ -25,12 +25,12 @@
     "jsc-android": "^241213.1.0",
     "react": "16.13.1",
     "react-native": "0.63.0",
-    "react-native-cardscan": "^1.1.6",
+    "react-native-cardscan": "file:react-native-cardscan-1.1.9.tgz",
     "react-native-credit-card-input": "^0.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/runtime": "^7.10.4",
+    "@babel/core": "^7.11.5",
+    "@babel/runtime": "^7.11.2",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.57.0"
