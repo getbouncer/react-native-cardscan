@@ -72,10 +72,15 @@ RCT_EXPORT_METHOD(scan:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)r
     [self.scanViewDelegate setCallback:resolve];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *rootViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
+        UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+
+        while (topViewController.presentedViewController) {
+            topViewController = topViewController.presentedViewController;
+        }
+        
         UIViewController *vc = [ScanViewController createViewControllerWithDelegate:self.scanViewDelegate];
 
-        [rootViewController presentViewController:vc animated:NO completion:nil];
+        [topViewController presentViewController:vc animated:NO completion:nil];
     });
 }
 
