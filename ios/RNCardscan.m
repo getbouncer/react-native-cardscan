@@ -11,8 +11,13 @@
 }
 
 - (void)dismissView {
-    UIViewController *rootViewController = UIApplication.sharedApplication.delegate.window.rootViewController;
-    [rootViewController dismissViewControllerAnimated:YES completion:nil];
+    UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+
+    while (topViewController.presentedViewController) {
+        topViewController = topViewController.presentedViewController;
+    }
+    
+    [topViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)userDidSkip:(ScanViewController * _Nonnull)scanViewController {
