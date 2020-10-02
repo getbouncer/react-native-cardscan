@@ -24,7 +24,7 @@
     "hermesvm": "^0.1.1",
     "jsc-android": "^241213.1.0",
     "react": ">=16.8.1 <17.x",
-    "react-native": "^0.63.3",
+    "react-native": ">=0.59.0-rc.0 <1.0.x",
     "react-native-cardscan": "file:react-native-cardscan-1.1.12.tgz",
     "react-native-credit-card-input": "^0.4.1"
   },
