@@ -147,13 +147,11 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
         scanPromise = promise;
 
         final Intent intent = CardScanActivity.buildIntent(
-                /* context */ this.reactContext.getApplicationContext(),
-                /* apiKey */ apiKey,
-                /* enableEnterCardManually */ enableEnterCardManually,
-                /* enableExpiryExtraction */ enableExpiryExtraction,
-                /* enableNameExtraction */ enableNameExtraction,
-                /* displayCardPan */ true,
-                /* displayCardholderName */ true
+            /* context */ this.reactContext.getApplicationContext(),
+            /* apiKey */ apiKey,
+            /* enableEnterCardManually */ enableEnterCardManually,
+            /* enableExpiryExtraction */ enableExpiryExtraction,
+            /* enableNameExtraction */ enableNameExtraction
         );
         this.reactContext.startActivityForResult(intent, SCAN_REQUEST_CODE, null);
     }
