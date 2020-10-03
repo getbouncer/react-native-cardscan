@@ -23,6 +23,7 @@ CardScan is open source, and available under a free-to-try license. See the [lic
 * [Integration](#integration)
 * [Customizing](#customizing)
 * [Developing](#developing)
+* [Troubleshooting](#troubleshooting)
 * [Authors](#authors)
 * [License](#license)
 
@@ -43,6 +44,9 @@ CardScan requires a valid API key to run. To provision an API key, visit the [Bo
 To test name and/or expiration extraction, please first provision an API key, then reach out to [support@getbouncer.com](mailto:support@getbouncer.com) with details about your use case and estimated volumes.
 
 Follow the [configuration guide](https://docs.getbouncer.com/card-scan/react-native-integration-guide#configuration) to enable name and expiry extraction support.
+
+## Troubleshooting
+See the [troubleshooting page](https://docs.getbouncer.com/card-scan/react-native-integration-guide/troubleshooting) in the Bouncer Docs to check if we have covered common issues.
 
 ## Authors
 Adam Wushensky, Sam King, and Zain ul Abi Din
