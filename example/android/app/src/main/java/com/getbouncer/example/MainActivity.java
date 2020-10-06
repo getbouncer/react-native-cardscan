@@ -1,4 +1,4 @@
-package com.example;
+package com.getbouncer.example;
 
 import com.facebook.react.ReactActivity;
 
