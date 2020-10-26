@@ -64,8 +64,10 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                             map.putMap("payload", cardMap);
                             map.putString("scanId", scanId);
 
-                            scanPromise.resolve(map);
-                            scanPromise = null;
+                            if (scanPromise != null) {
+                                scanPromise.resolve(map);
+                                scanPromise = null;
+                            }
                         }
 
                         @Override
@@ -75,8 +77,10 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                             map.putString("canceledReason", "enter_card_manually");
                             map.putString("scanId", scanId);
 
-                            scanPromise.resolve(map);
-                            scanPromise = null;
+                            if (scanPromise != null) {
+                                scanPromise.resolve(map);
+                                scanPromise = null;
+                            }
                         }
 
                         @Override
@@ -86,8 +90,10 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                             map.putString("canceledReason", "user_canceled");
                             map.putString("scanId", scanId);
 
-                            scanPromise.resolve(map);
-                            scanPromise = null;
+                            if (scanPromise != null) {
+                                scanPromise.resolve(map);
+                                scanPromise = null;
+                            }
                         }
 
                         @Override
@@ -97,8 +103,10 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                             map.putString("canceledReason", "camera_error");
                             map.putString("scanId", scanId);
 
-                            scanPromise.resolve(map);
-                            scanPromise = null;
+                            if (scanPromise != null) {
+                                scanPromise.resolve(map);
+                                scanPromise = null;
+                            }
                         }
 
                         @Override
@@ -108,8 +116,10 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                             map.putString("canceledReason", "fatal_error");
                             map.putString("scanId", scanId);
 
-                            scanPromise.resolve(map);
-                            scanPromise = null;
+                            if (scanPromise != null) {
+                                scanPromise.resolve(map);
+                                scanPromise = null;
+                            }
                         }
 
                         @Override
@@ -119,8 +129,10 @@ public class RNCardscanModule extends ReactContextBaseJavaModule {
                             map.putString("canceledReason", "unknown");
                             map.putString("scanId", scanId);
 
-                            scanPromise.resolve(map);
-                            scanPromise = null;
+                            if (scanPromise != null) {
+                                scanPromise.resolve(map);
+                                scanPromise = null;
+                            }
                         }
                     });
                 }
