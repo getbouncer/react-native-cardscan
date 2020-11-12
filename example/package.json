@@ -17,8 +17,8 @@
   },
   "homepage": "https://cardscan.io",
   "author": {
-    "name": "Stefano Suryanto and Adam Wushensky",
-    "email": "adam@getbouncer.com"
+    "name": "Stefano Suryanto, Adam Wushensky, and Jaime Park",
+    "email": "support@getbouncer.com"
   },
   "dependencies": {
     "hermesvm": "^0.1.1",
