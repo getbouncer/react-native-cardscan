@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React"
-  s.dependency "CardScan", '~> 1.0.5050'
+  s.dependency "CardScan", '~> 1.0.5051'
 end
 
