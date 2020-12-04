@@ -1,8 +1,8 @@
 PODS:
   - boost-for-react-native (1.63.0)
-  - CardScan (1.0.5050):
-    - CardScan/Core (= 1.0.5050)
-  - CardScan/Core (1.0.5050)
+  - CardScan (1.0.5051):
+    - CardScan/Core (= 1.0.5051)
+  - CardScan/Core (1.0.5051)
   - CocoaAsyncSocket (7.6.4)
   - CocoaLibEvent (1.0.0)
   - DoubleConversion (1.1.6)
@@ -239,8 +239,8 @@ PODS:
     - React-cxxreact (= 0.63.3)
     - React-jsi (= 0.63.3)
   - React-jsinspector (0.63.3)
-  - react-native-cardscan (1.1.23):
-    - CardScan (~> 1.0.5049)
+  - react-native-cardscan (1.1.26):
+    - CardScan (~> 1.0.5051)
     - React
   - React-RCTActionSheet (0.63.3):
     - React-Core/RCTActionSheetHeaders (= 0.63.3)
@@ -307,7 +307,7 @@ PODS:
     - Yoga (~> 1.14)
 
 DEPENDENCIES:
-  - CardScan (~> 1.0.5050)
+  - CardScan (~> 1.0.5051)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
@@ -431,7 +431,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  CardScan: 849c4da1bc84740a496f4898f9e9c3cc6ee7205e
+  CardScan: c1a847e4e1bf3eedc7fc80ef362de12c8ecff802
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
   DoubleConversion: cde416483dac037923206447da6e1454df403714
@@ -457,7 +457,7 @@ SPEC CHECKSUMS:
   React-jsi: df07aa95b39c5be3e41199921509bfa929ed2b9d
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
-  react-native-cardscan: c86feb4a9b2a8c60970b99963d4936f87ae3d7bd
+  react-native-cardscan: 324aab714c97b5756d9e62ed8007bd1009b633d1
   React-RCTActionSheet: 53ea72699698b0b47a6421cb1c8b4ab215a774aa
   React-RCTAnimation: 1befece0b5183c22ae01b966f5583f42e69a83c2
   React-RCTBlob: 0b284339cbe4b15705a05e2313a51c6d8b51fa40
@@ -471,6 +471,6 @@ SPEC CHECKSUMS:
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: e2a4d603e7aaa32124dd606a138ef7abab360dc5
+PODFILE CHECKSUM: 9696056756a38e91998e5283f4d70500d8c1ea62
 
 COCOAPODS: 1.10.0.beta.2
