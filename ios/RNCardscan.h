@@ -1,7 +1,8 @@
 #import <React/RCTBridgeModule.h>
+#import "CardScan/CardScan-Swift.h"
 @import CardScan;
 
-@interface ScanViewDelegate : NSObject <ScanDelegate>
+@interface SimpleScanViewDelegate : NSObject <SimpleScanDelegate>
 
 @property RCTPromiseResolveBlock resolve;
 
@@ -12,6 +13,6 @@
 
 @interface RNCardscan : NSObject <RCTBridgeModule>
 
-@property (nonatomic) ScanViewDelegate * scanViewDelegate;
+@property (nonatomic) SimpleScanViewDelegate * simpleScanViewDelegate;
 
 @end
