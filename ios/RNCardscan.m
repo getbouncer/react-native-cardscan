@@ -4,7 +4,7 @@
 
 @import CardScan;
 
-@implementation ScanViewDelegate
+@implementation SimpleScanViewDelegate
 
 - (void)setCallback:(RCTPromiseResolveBlock)resolve {
     self.resolve = resolve;
@@ -20,17 +20,12 @@
     [topViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)userDidSkip:(ScanViewController * _Nonnull)scanViewController {
-    [self dismissView];
-    self.resolve(@{ @"action" : @"skipped" });
-}
-
-- (void)userDidCancel:(ScanViewController * _Nonnull)scanViewController {
+- (void)userDidCancelSimple:(SimpleScanViewController * _Nonnull)scanViewController  API_AVAILABLE(ios(11.2)){
     [self dismissView];
     self.resolve(@{ @"action" : @"canceled" });
 }
 
-- (void)userDidScanCard:(ScanViewController * _Nonnull)scanViewController creditCard:(CreditCard * _Nonnull)creditCard {
+- (void)userDidScanCardSimple:(SimpleScanViewController * _Nonnull)scanViewController creditCard:(CreditCard * _Nonnull)creditCard  API_AVAILABLE(ios(11.2)){
     [self dismissView];
     NSString *number = creditCard.number;
     NSString *cardholderName = creditCard.name;
@@ -60,7 +55,7 @@
 
 - (id)init {
     if(self = [super init]) {
-        self.scanViewDelegate = [[ScanViewDelegate alloc] init];
+        self.simpleScanViewDelegate = [[SimpleScanViewDelegate alloc] init];
     }
     return self;
 }
@@ -69,24 +64,29 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(isSupportedAsync:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject)
 {
-    resolve(@([ScanViewController isCompatible]));
+    if (@available(iOS 11.2, *)) {
+        resolve(@([SimpleScanViewController isCompatible]));
+    }
 }
 
 RCT_EXPORT_METHOD(scan:(RCTPromiseResolveBlock)resolve :(RCTPromiseRejectBlock)reject)
 {
-    [self.scanViewDelegate setCallback:resolve];
+    if (@available(iOS 11.2, *)) {
+        [self.simpleScanViewDelegate setCallback:resolve];
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UIViewController *topViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
 
-        while (topViewController.presentedViewController) {
-            topViewController = topViewController.presentedViewController;
-        }
-        
-        UIViewController *vc = [ScanViewController createViewControllerWithDelegate:self.scanViewDelegate];
-
-        [topViewController presentViewController:vc animated:NO completion:nil];
-    });
+            while (topViewController.presentedViewController) {
+                topViewController = topViewController.presentedViewController;
+            }
+            
+            SimpleScanViewController *vc = [SimpleScanViewController createViewController];
+            vc.delegate = self.simpleScanViewDelegate;
+            
+            [topViewController presentViewController:vc animated:NO completion:nil];
+        });
+    }
 }
 
 @end
