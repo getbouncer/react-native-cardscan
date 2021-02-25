@@ -30,7 +30,7 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
 
-  [ScanViewController configureWithApiKey:@"ENTER_API_KEY"];
+  [SimpleScanViewController configureWithApiKey:@"ENTER_API_KEY"];
 
   return YES;
 }

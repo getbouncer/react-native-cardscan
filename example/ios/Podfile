@@ -4,7 +4,7 @@ require_relative '../node_modules/react-native/scripts/react_native_pods'
 platform :ios, '11.0'
 
 target 'example' do
-  pod 'CardScan', '~> 2.0.8'
+  pod 'CardScan', '~> 2.0.9'
   pod 'react-native-cardscan', :path => '../node_modules/react-native-cardscan/react-native-cardscan.podspec'
 
   config = use_native_modules!
