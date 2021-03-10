@@ -14,22 +14,31 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: "master"
-          token: ${{secrets.SERVICE_PERSONAL_ACCESS_TOKEN}}
-          submodules: recursive
 
       - name: get current tag
         id: get_tag
         run: echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
 
-      # - name: update version
-      #   env:
-      #     TAG_VERSION: ${{ steps.get_tag.outputs.VERSION }}
-      #   run: |
-      #     cd android
-      #     truncate -s $(( $(stat -c "%s" gradle.properties) - $(tail -n 1 gradle.properties | wc -c) )) gradle.properties
-      #     echo "version=$TAG_VERSION" >> gradle.properties
-      #     cat gradle.properties
-      #     cd ..
+      - name: update version
+        env:
+          TAG_VERSION: ${{ steps.get_tag.outputs.VERSION }}
+        run: |
+          sed -i -E 's/^  "version": "[^"]+",$/  "version": "'"$TAG_VERSION"'",/g' package.json
+          cat package.json
+          sed -i -E 's/^    "react-native-cardscan": "[^"]+",$/    "react-native-cardscan": "file:react-native-cardscan-'"$TAG_VERSION"'.tgz",/g' example/package.json
+          cat example/package.json
+
+      - name: update package lock
+        run: |
+          npm install
+
+      - name: update example package lock
+        run: |
+          cd example
+          npm pack ..
+          npm update
+          npm install
+          cd ..
 
       - name: generate changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.1.1
@@ -58,4 +67,31 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "Automatic changelog update"
-          file_pattern: "gradle.properties CHANGELOG.md"
+          file_pattern: "package.json package-lock.json example/package.json example/package-lock.json CHANGELOG.md"
+
+  publish-npm:
+    needs: finalize_release
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          ref: "master"
+
+      - name: setup nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: prepublish
+        run: |
+          npm install
+
+      - name: publish to NPM
+        run: |
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
