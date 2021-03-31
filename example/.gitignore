@@ -1,6 +1,8 @@
+# NPM
+node_modules
+
 # iOS
 ios/Pods
-package-lock.json
 
 # Bundle
 *.tgz
