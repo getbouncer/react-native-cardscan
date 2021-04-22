@@ -155,10 +155,11 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
-    implementation "com.getbouncer:cardscan-ui:2.0.0083"
-    implementation "com.getbouncer:scan-payment-card-detect:2.0.0083"
-    implementation "com.getbouncer:scan-payment-ocr:2.0.0083"
-    implementation "com.getbouncer:tensorflow-lite:2.0.0083"
+    implementation "com.getbouncer:cardscan-ui:2.0.0084"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0084"
+    implementation "com.getbouncer:scan-payment-ocr:2.0.0084"
+    implementation "com.getbouncer:tensorflow-lite:2.0.0084"
+    implementation "com.getbouncer:scan-camerax:2.0.0084"
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermesvm/android/";
