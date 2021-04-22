@@ -1,14 +1,16 @@
 # Changelog
 
+## [1.1.30](https://github.com/getbouncer/react-native-cardscan/tree/1.1.30) (2021-04-22)
+
+**Merged pull requests:**
+
+- Upgrade android version [\#117](https://github.com/getbouncer/react-native-cardscan/pull/117) ([awushensky](https://github.com/awushensky))
+
 ## [1.1.29](https://github.com/getbouncer/react-native-cardscan/tree/1.1.29) (2021-04-16)
 
 **Closed issues:**
 
 - Is it possible to scan cardholderName on android? [\#106](https://github.com/getbouncer/react-native-cardscan/issues/106)
-
-**Merged pull requests:**
-
-- Update android version [\#115](https://github.com/getbouncer/react-native-cardscan/pull/115) ([awushensky](https://github.com/awushensky))
 
 ## [1.1.28](https://github.com/getbouncer/react-native-cardscan/tree/1.1.28) (2021-03-10)
 
@@ -24,6 +26,7 @@
 
 **Merged pull requests:**
 
+- Update android version [\#115](https://github.com/getbouncer/react-native-cardscan/pull/115) ([awushensky](https://github.com/awushensky))
 - Upgrade native libraries [\#83](https://github.com/getbouncer/react-native-cardscan/pull/83) ([awushensky](https://github.com/awushensky))
 - Update native libraries [\#72](https://github.com/getbouncer/react-native-cardscan/pull/72) ([awushensky](https://github.com/awushensky))
 - Fix NPE [\#70](https://github.com/getbouncer/react-native-cardscan/pull/70) ([awushensky](https://github.com/awushensky))
@@ -31,7 +34,6 @@
 - Upgrade cardscan [\#67](https://github.com/getbouncer/react-native-cardscan/pull/67) ([awushensky](https://github.com/awushensky))
 - Upgrade native cardscan [\#65](https://github.com/getbouncer/react-native-cardscan/pull/65) ([awushensky](https://github.com/awushensky))
 - Upgrade cardscan [\#64](https://github.com/getbouncer/react-native-cardscan/pull/64) ([awushensky](https://github.com/awushensky))
-- Update android version [\#59](https://github.com/getbouncer/react-native-cardscan/pull/59) ([awushensky](https://github.com/awushensky))
 
 ## [1.1.16](https://github.com/getbouncer/react-native-cardscan/tree/1.1.16) (2020-10-06)
 
@@ -47,6 +49,10 @@
 - Update README.md [\#60](https://github.com/getbouncer/react-native-cardscan/pull/60) ([jaimejiyepark](https://github.com/jaimejiyepark))
 
 ## [1.1.14](https://github.com/getbouncer/react-native-cardscan/tree/1.1.14) (2020-10-02)
+
+**Merged pull requests:**
+
+- Update android version [\#59](https://github.com/getbouncer/react-native-cardscan/pull/59) ([awushensky](https://github.com/awushensky))
 
 ## [1.1.12](https://github.com/getbouncer/react-native-cardscan/tree/1.1.12) (2020-10-02)
 
