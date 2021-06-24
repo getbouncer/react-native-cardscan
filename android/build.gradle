@@ -76,7 +76,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation "com.getbouncer:cardscan-ui:2.0.0084"
+    implementation "com.getbouncer:cardscan-ui:2.1.0003"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
 }
 
