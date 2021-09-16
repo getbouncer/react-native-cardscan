@@ -206,7 +206,7 @@ PODS:
   - React-jsinspector (0.64.2)
   - react-native-cardscan (1.1.30):
     - CardScan (~> 2.0.9)
-    - React
+    - React-Core
   - React-perflogger (0.64.2)
   - React-RCTActionSheet (0.64.2):
     - React-Core/RCTActionSheetHeaders (= 0.64.2)
@@ -390,7 +390,7 @@ SPEC CHECKSUMS:
   React-jsi: 67747b9722f6dab2ffe15b011bcf6b3f2c3f1427
   React-jsiexecutor: 80c46bd381fd06e418e0d4f53672dc1d1945c4c3
   React-jsinspector: cc614ec18a9ca96fd275100c16d74d62ee11f0ae
-  react-native-cardscan: 8592ae8d474e4b1254ea7a4968caa00e559c8677
+  react-native-cardscan: e135517ab0c42d2434636b95339ae5ab20e47b67
   React-perflogger: 25373e382fed75ce768a443822f07098a15ab737
   React-RCTActionSheet: af7796ba49ffe4ca92e7277a5d992d37203f7da5
   React-RCTAnimation: 6a2e76ab50c6f25b428d81b76a5a45351c4d77aa
