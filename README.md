@@ -29,7 +29,7 @@ CardScan is open source, and available under a free-to-try license. See the [lic
 
 ## Requirements
 * Android API level 21 or higher
-* iOS version 10 or higher
+* iOS version 11 or higher
 
 ## Demo
 This repository contains a demonstration app for the CardScan product. To build and run the demo app, follow the instructions in the [example app documentation](https://docs.getbouncer.com/card-scan/react-native-integration-guide#example-app).
@@ -49,7 +49,7 @@ Follow the [configuration guide](https://docs.getbouncer.com/card-scan/react-nat
 See the [troubleshooting page](https://docs.getbouncer.com/card-scan/react-native-integration-guide/troubleshooting) in the Bouncer Docs to check if we have covered common issues.
 
 ## Authors
-Adam Wushensky, Sam King, and Zain ul Abi Din
+Adam Wushensky, Jaime Park, Sam King, and Zain ul Abi Din
 
 ## License
 This library is available under paid and free licenses. See the [LICENSE](LICENSE) file for the full license text.
