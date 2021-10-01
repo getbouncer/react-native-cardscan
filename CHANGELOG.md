@@ -1,11 +1,5 @@
 # Changelog
 
-## [2.0.0](https://github.com/getbouncer/react-native-cardscan/tree/2.0.0) (2021-09-30)
-
-**Merged pull requests:**
-
-- Create UI customization interface for iOS  [\#152](https://github.com/getbouncer/react-native-cardscan/pull/117) ([jaimejiyepark](https://github.com/awushensky))
-
 ## [1.1.30](https://github.com/getbouncer/react-native-cardscan/tree/1.1.30) (2021-04-22)
 
 **Merged pull requests:**
