@@ -1,16 +1,38 @@
 # Changelog
 
-## [1.1.30](https://github.com/getbouncer/react-native-cardscan/tree/1.1.30) (2021-04-22)
+## [2.0.0](https://github.com/getbouncer/react-native-cardscan/tree/2.0.0) (2021-10-04)
+
+**Closed issues:**
+
+- Getting version error during pod install [\#153](https://github.com/getbouncer/react-native-cardscan/issues/153)
+- Value of card expiry month, year [\#150](https://github.com/getbouncer/react-native-cardscan/issues/150)
+- Trying to install package in react native causes build failure [\#129](https://github.com/getbouncer/react-native-cardscan/issues/129)
+- \[Customizing\] How to customize the câmera overlay? [\#120](https://github.com/getbouncer/react-native-cardscan/issues/120)
+- Credit Card Image [\#116](https://github.com/getbouncer/react-native-cardscan/issues/116)
+- iOS: not building project issue \(ld: symbol\(s\) not found for architecture arm64\) [\#100](https://github.com/getbouncer/react-native-cardscan/issues/100)
+- \> Task :react-native-cardscan:packageDebugAssets FAILED [\#95](https://github.com/getbouncer/react-native-cardscan/issues/95)
+- iOS Build Issue [\#56](https://github.com/getbouncer/react-native-cardscan/issues/56)
 
 **Merged pull requests:**
 
-- Upgrade android version [\#117](https://github.com/getbouncer/react-native-cardscan/pull/117) ([awushensky](https://github.com/awushensky))
+- Release 2.0.0 [\#155](https://github.com/getbouncer/react-native-cardscan/pull/155) ([jaimepark-stripe](https://github.com/jaimepark-stripe))
+- Create RN UI Customization interface [\#152](https://github.com/getbouncer/react-native-cardscan/pull/152) ([jaimepark-stripe](https://github.com/jaimepark-stripe))
+- Update react dependency from React to React-Core [\#149](https://github.com/getbouncer/react-native-cardscan/pull/149) ([kingst-stripe](https://github.com/kingst-stripe))
+- Clean up the example app [\#148](https://github.com/getbouncer/react-native-cardscan/pull/148) ([kingst-stripe](https://github.com/kingst-stripe))
+- Update CODEOWNERS [\#146](https://github.com/getbouncer/react-native-cardscan/pull/146) ([jaimepark-stripe](https://github.com/jaimepark-stripe))
+
+## [1.1.30](https://github.com/getbouncer/react-native-cardscan/tree/1.1.30) (2021-04-22)
 
 ## [1.1.29](https://github.com/getbouncer/react-native-cardscan/tree/1.1.29) (2021-04-16)
 
 **Closed issues:**
 
 - Is it possible to scan cardholderName on android? [\#106](https://github.com/getbouncer/react-native-cardscan/issues/106)
+
+**Merged pull requests:**
+
+- Update android version [\#115](https://github.com/getbouncer/react-native-cardscan/pull/115) ([awushensky](https://github.com/awushensky))
+- Bump to CardScan 2.0.9 [\#103](https://github.com/getbouncer/react-native-cardscan/pull/103) ([jaimejiyepark](https://github.com/jaimejiyepark))
 
 ## [1.1.28](https://github.com/getbouncer/react-native-cardscan/tree/1.1.28) (2021-03-10)
 
@@ -20,13 +42,12 @@
 
 **Merged pull requests:**
 
-- Bump to CardScan 2.0.9 [\#103](https://github.com/getbouncer/react-native-cardscan/pull/103) ([jaimejiyepark](https://github.com/jaimejiyepark))
+- Upgrade android version [\#117](https://github.com/getbouncer/react-native-cardscan/pull/117) ([awushensky](https://github.com/awushensky))
 
 ## [1.1.26](https://github.com/getbouncer/react-native-cardscan/tree/1.1.26) (2020-12-04)
 
 **Merged pull requests:**
 
-- Update android version [\#115](https://github.com/getbouncer/react-native-cardscan/pull/115) ([awushensky](https://github.com/awushensky))
 - Upgrade native libraries [\#83](https://github.com/getbouncer/react-native-cardscan/pull/83) ([awushensky](https://github.com/awushensky))
 - Update native libraries [\#72](https://github.com/getbouncer/react-native-cardscan/pull/72) ([awushensky](https://github.com/awushensky))
 - Fix NPE [\#70](https://github.com/getbouncer/react-native-cardscan/pull/70) ([awushensky](https://github.com/awushensky))
@@ -96,6 +117,7 @@
 - Bump gradle from 4.0.0 to 4.0.1 in /android [\#24](https://github.com/getbouncer/react-native-cardscan/pull/24) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Update cardscan [\#23](https://github.com/getbouncer/react-native-cardscan/pull/23) ([jaimejiyepark](https://github.com/jaimejiyepark))
 - Support expiry extraction [\#22](https://github.com/getbouncer/react-native-cardscan/pull/22) ([awushensky](https://github.com/awushensky))
+- Support name extraction [\#20](https://github.com/getbouncer/react-native-cardscan/pull/20) ([awushensky](https://github.com/awushensky))
 
 ## [1.1.4](https://github.com/getbouncer/react-native-cardscan/tree/1.1.4) (2020-06-25)
 
@@ -105,7 +127,6 @@
 
 **Merged pull requests:**
 
-- Support name extraction [\#20](https://github.com/getbouncer/react-native-cardscan/pull/20) ([awushensky](https://github.com/awushensky))
 - Upgrade android to 2.0 [\#16](https://github.com/getbouncer/react-native-cardscan/pull/16) ([awushensky](https://github.com/awushensky))
 - Fix readme [\#14](https://github.com/getbouncer/react-native-cardscan/pull/14) ([awushensky](https://github.com/awushensky))
 - Update example [\#12](https://github.com/getbouncer/react-native-cardscan/pull/12) ([awushensky](https://github.com/awushensky))
