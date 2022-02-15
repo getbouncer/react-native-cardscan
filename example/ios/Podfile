@@ -5,20 +5,9 @@ platform :ios, '11.0'
 
 target 'example' do
   pod 'CardScan', '~> 2.0.9'
-  pod 'react-native-cardscan', :path => '../node_modules/react-native-cardscan/react-native-cardscan.podspec'
+  pod 'react-native-cardscan', :path => '../node_modules/react-native-cardscan'
 
   config = use_native_modules!
   use_react_native!(:path => config["reactNativePath"])
-
-  
-
-  # Enables Flipper.
-  #
-  # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable these next few lines.
-  use_flipper!({ 'Flipper-Folly' => '2.3.0' })
-  post_install do |installer|
-    flipper_post_install(installer)
-  end
 end
 

@@ -16,6 +16,41 @@ const StyledText = ({ color, bold, ...otherProps }) => (
   />
 );
 
+if (Platform.OS === 'ios') {
+  Cardscan.setiOSScanViewStyle({
+    'backButtonTintColor': '#000',
+    'backButtonText': 'Cancel',
+
+    'backgroundColor': '#FFC0CB',
+    'backgroundColorOpacity': 0.5,
+    
+    'cardDetailExpiryTextColor': '#FFF',
+    'cardDetailNameTextColor': '#FFF',
+    'cardDetailNumberTextColor': '#FFF',
+
+    'descriptionHeaderText': 'Scan Card',
+    'descriptionHeaderTextColor': '#FFF',
+    'descriptionHeaderTextFont': 'Avenir-Heavy',
+    'descriptionHeaderTextSize': 30.0,
+
+    'enableCameraPermissionText': "Enable your camera permissions",
+    'enableCameraPermissionTextColor': '#000',
+    'enableCameraPermissionTextFont': 'Avenir-LightOblique',
+    'enableCameraPermissionTextSize': 20.0,
+
+    'instructionText': 'Please center your card in the middle',
+    'instructionTextFont': 'Avenir-Light',
+    'instructionTextColor': '#00ff00',
+    'instructionTextSize': 20.0,
+
+    'roiBorderColor': '#ff0000',
+    'roiCornerRadius': 40.0,
+
+    'torchButtonTintColor': '#FFF',
+    'torchButtonPosition': 0,
+  });
+}
+
 export default () => {
   const [compatible, setCompatible] = useState(null);
   const [card, setCard] = useState(null);
