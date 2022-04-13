@@ -1,0 +1,41 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+    - 4.0.2
+    - 4.0.3
+  - dependency-name: react-native
+    versions:
+    - 0.63.4
+- package-ecosystem: gradle
+  directory: "/android"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: org.jetbrains.kotlinx:kotlinx-coroutines-core
+    versions:
+    - 1.4.2-native-mt
+  - dependency-name: com.getbouncer:cardscan-ui
+    versions:
+    - 2.0.0070
+    - 2.0.0071
+    - 2.0.0072
+    - 2.0.0073
+    - 2.0.0074
+    - 2.0.0075
+    - 2.0.0076
+    - 2.0.0077
+    - 2.0.0079
+    - 2.0.0080
+    - 2.0.0083
+  - dependency-name: com.android.tools.build:gradle
+    versions:
+    - 4.1.2
